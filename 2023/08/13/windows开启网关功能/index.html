@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>windows10开启网关功能 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置Quick Start一、NAT1、启动ICS服务（InternetConnection Sharing）即可 二、IP路由转发网上搜索通过更改如下注册表，但经试验是无效的，不管是否重启电脑">
+  <meta name="description" content="网关功能需要满足两个条件就可以了，一个是IP数据转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置Quick Start一、NAT1、启动ICS服务（InternetConnection Sharing）即可 二、IP路由转发网上搜索通过更改如下注册表，但经试验是无效的，不管是否重启电脑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows10开启网关功能">
 <meta property="og:url" content="http://example.com/2023/08/13/windows%E5%BC%80%E5%90%AF%E7%BD%91%E5%85%B3%E5%8A%9F%E8%83%BD/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置Quick Start一、NAT1、启动ICS服务（InternetConnection Sharing）即可 二、IP路由转发网上搜索通过更改如下注册表，但经试验是无效的，不管是否重启电脑">
+<meta property="og:description" content="网关功能需要满足两个条件就可以了，一个是IP数据转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置Quick Start一、NAT1、启动ICS服务（InternetConnection Sharing）即可 二、IP路由转发网上搜索通过更改如下注册表，但经试验是无效的，不管是否重启电脑">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-13T11:57:18.000Z">
-<meta property="article:modified_time" content="2023-08-13T09:27:36.455Z">
+<meta property="article:modified_time" content="2023-08-13T10:06:15.134Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="网关">
@@ -176,7 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现-sysctl-x2F-iptables-x2F-nftables-而windows则没有直接的命令或设置"><a href="#网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现-sysctl-x2F-iptables-x2F-nftables-而windows则没有直接的命令或设置" class="headerlink" title="网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置"></a>网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="一、NAT"><a href="#一、NAT" class="headerlink" title="一、NAT"></a>一、NAT</h3><p>1、启动ICS服务（InternetConnection Sharing）即可</p>
+        <h2 id="网关功能需要满足两个条件就可以了，一个是IP数据转发，一个是NAT，在Linux下比较容易实现-sysctl-x2F-iptables-x2F-nftables-而windows则没有直接的命令或设置"><a href="#网关功能需要满足两个条件就可以了，一个是IP数据转发，一个是NAT，在Linux下比较容易实现-sysctl-x2F-iptables-x2F-nftables-而windows则没有直接的命令或设置" class="headerlink" title="网关功能需要满足两个条件就可以了，一个是IP数据转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置"></a>网关功能需要满足两个条件就可以了，一个是IP数据转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="一、NAT"><a href="#一、NAT" class="headerlink" title="一、NAT"></a>一、NAT</h3><p>1、启动ICS服务（InternetConnection Sharing）即可</p>
 <h3 id="二、IP路由转发"><a href="#二、IP路由转发" class="headerlink" title="二、IP路由转发"></a>二、IP路由转发</h3><p>网上搜索通过更改如下注册表，但经试验是无效的，不管是否重启电脑<br>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameter<br>添加IPEnableRouter 为1</p>
 <p>正确的方法有二：<br>1、启动RemoteAccess服务（Routing and Remote Access）<br>可以通过ipconfig &#x2F;all 检查 IP路由已启用——-是&#x2F;否</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Windows IP 配置</span><br><span class="line"></span><br><span class="line">   主机名  . . . . . . . . . . . . . : LAPTOP-XXXX</span><br><span class="line">   主 DNS 后缀 . . . . . . . . . . . :</span><br><span class="line">   节点类型  . . . . . . . . . . . . : 混合</span><br><span class="line">   IP 路由已启用 . . . . . . . . . . : 是</span><br><span class="line">   WINS 代理已启用 . . . . . . . . . : 否</span><br><span class="line">   DNS 后缀搜索列表  . . . . . . . . : DHCP HOST</span><br></pre></td></tr></table></figure>
