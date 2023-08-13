@@ -152,6 +152,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-windows开启网关功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/13/windows%E5%BC%80%E5%90%AF%E7%BD%91%E5%85%B3%E5%8A%9F%E8%83%BD/">windows10开启网关功能</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/13/windows%E5%BC%80%E5%90%AF%E7%BD%91%E5%85%B3%E5%8A%9F%E8%83%BD/" class="archive-article-date">
+  	<time datetime="2023-08-13T11:57:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现-sysctl-x2F-iptables-x2F-nftables-而windows则没有直接的命令或设置"><a href="#网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现-sysctl-x2F-iptables-x2F-nftables-而windows则没有直接的命令或设置" class="headerlink" title="网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置"></a>网关功能需要满足两个条件就可以了，一个是IP路由转发，一个是NAT，在Linux下比较容易实现(sysctl&#x2F;iptables&#x2F;nftables),  而windows则没有直接的命令或设置</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="一、NAT"><a href="#一、NAT" class="headerlink" title="一、NAT"></a>一、NAT</h3><p>1、启动ICS服务（InternetConnection Sharing）即可</p>
+<h3 id="二、IP路由转发"><a href="#二、IP路由转发" class="headerlink" title="二、IP路由转发"></a>二、IP路由转发</h3><p>网上搜索通过更改如下注册表，但经试验是无效的，不管是否重启电脑<br>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameter<br>添加IPEnableRouter 为1</p>
+<p>正确的方法有二：<br>1、启动RemoteAccess服务（Routing and Remote Access）<br>可以通过ipconfig &#x2F;all 检查 IP路由已启用——-是&#x2F;否</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Windows IP 配置</span><br><span class="line"></span><br><span class="line">   主机名  . . . . . . . . . . . . . : LAPTOP-XXXX</span><br><span class="line">   主 DNS 后缀 . . . . . . . . . . . :</span><br><span class="line">   节点类型  . . . . . . . . . . . . : 混合</span><br><span class="line">   IP 路由已启用 . . . . . . . . . . : 是</span><br><span class="line">   WINS 代理已启用 . . . . . . . . . : 否</span><br><span class="line">   DNS 后缀搜索列表  . . . . . . . . : DHCP HOST</span><br></pre></td></tr></table></figure>
+<p>2、直接使用命令行（cmd)<br>netsh int ipv4 set interface (interface id) forwarding&#x3D; “enabled”<br>其中interface id 可以通过netsh int ipv4 show interfaces 查看,是个数字ID<br>修改完成后，再通过netsh int ipv4 show interface （interface id） 检查“转发”<br>注：此种方式如果通过ipconfig &#x2F;all检查，IP 路由已启用会为否，但实际IP转发功能是有效的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">netsh interface ipv4&gt;show int 21</span><br><span class="line">接口 WLAN 参数</span><br><span class="line">----------------------------------------------</span><br><span class="line">IfLuid                             : wireless_32768</span><br><span class="line">IfIndex                            : 21</span><br><span class="line">状态                              : connected</span><br><span class="line">跃点数                             : 50</span><br><span class="line">链接 MTU                           : 1500 字节</span><br><span class="line">可访问时间                     : 42500 毫秒</span><br><span class="line">基本可访问时间                : 30000 毫秒</span><br><span class="line">重传间隔            : 1000 毫秒</span><br><span class="line">DAD 传输                      : 3</span><br><span class="line">站点前缀长度                 : 64</span><br><span class="line">站点 ID                            : 1</span><br><span class="line">转发                         : enabled</span><br><span class="line">播发                        : disabled</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/13/windows%E5%BC%80%E5%90%AF%E7%BD%91%E5%85%B3%E5%8A%9F%E8%83%BD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-华为手机adb-shell自己" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -332,6 +414,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">无线调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网关</a>
               </li>
             
             <div class="clearfix"></div>
