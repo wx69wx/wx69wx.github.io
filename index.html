@@ -173,8 +173,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google-play的应用打开会自动关闭，如chrome-谷歌地图等等"><a href="#华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google-play的应用打开会自动关闭，如chrome-谷歌地图等等" class="headerlink" title="华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google play的应用打开会自动关闭，如chrome,谷歌地图等等"></a>华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google play的应用打开会自动关闭，如chrome,谷歌地图等等</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="最早的靠谱方法（来自YouTuber-johnwang66）"><a href="#最早的靠谱方法（来自YouTuber-johnwang66）" class="headerlink" title="最早的靠谱方法（来自YouTuber @johnwang66）"></a>最早的靠谱方法（来自YouTuber @johnwang66）</h3><p>1、手机切为飞行模式<br>2、”google 服务框架” 清空缓存和数据，停止运行<br>3、”google  play 服务” 清空缓存<code>（注意不要清空数据）</code>，停止运行<br>4、”google play 商店” 清空缓存和数据，停止运行<br>5、重启手机，”google  play 服务” 清空数据，停止运行<br>6、重启手机，取消飞行模式，恢复正常使用不会弹窗</p>
-<p>###使用上面方法一直用得好好的，后来play 服务升级后会失效，思考后增加一步<br>7、”google  play 服务” — 流量使用—禁止所有网络访问（就不会升级了）</p>
-<p>###最近系统升级为鸿蒙4.0后，噩梦又开始了，第7步会失效，即使禁用，它还是会自动升级（流量使用–可以看到流量）<br>经过研究，找到新方法：<br>停用google 框架即可,  play 升级也没事了，不能停用play, 否则其他软件不能运行<br>8、</p>
+<h3 id="使用上面方法一直用得好好的，后来play-服务升级后会失效，思考后增加一步"><a href="#使用上面方法一直用得好好的，后来play-服务升级后会失效，思考后增加一步" class="headerlink" title="使用上面方法一直用得好好的，后来play 服务升级后会失效，思考后增加一步"></a>使用上面方法一直用得好好的，后来play 服务升级后会失效，思考后增加一步</h3><p>7、”google  play 服务” — 流量使用—禁止所有网络访问（就不会升级了）</p>
+<h3 id="最近系统升级为鸿蒙4-0后，噩梦又开始了，第7步会失效，即使禁用，它还是会自动升级（流量使用–可以看到流量）"><a href="#最近系统升级为鸿蒙4-0后，噩梦又开始了，第7步会失效，即使禁用，它还是会自动升级（流量使用–可以看到流量）" class="headerlink" title="最近系统升级为鸿蒙4.0后，噩梦又开始了，第7步会失效，即使禁用，它还是会自动升级（流量使用–可以看到流量）"></a>最近系统升级为鸿蒙4.0后，噩梦又开始了，第7步会失效，即使禁用，它还是会自动升级（流量使用–可以看到流量）</h3><p>经过研究，找到新方法：<br>停用google 框架即可,  play 升级也没事了，不能停用play, 否则其他软件不能运行<br>8、</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell</span><br><span class="line">$ pm  disable-user –user 0  com.google.android.gsf</span><br></pre></td></tr></table></figure>
 
 
