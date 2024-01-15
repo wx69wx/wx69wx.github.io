@@ -152,6 +152,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-华为荣耀手机Google服务弹窗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/01/15/%E5%8D%8E%E4%B8%BA%E8%8D%A3%E8%80%80%E6%89%8B%E6%9C%BAGoogle%E6%9C%8D%E5%8A%A1%E5%BC%B9%E7%AA%97/">华为荣耀手机google服务弹窗问题</a>
+    </h1>
+  
+
+        
+        <a href="/2024/01/15/%E5%8D%8E%E4%B8%BA%E8%8D%A3%E8%80%80%E6%89%8B%E6%9C%BAGoogle%E6%9C%8D%E5%8A%A1%E5%BC%B9%E7%AA%97/" class="archive-article-date">
+  	<time datetime="2024-01-15T15:57:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google-play的应用打开会自动关闭，如chrome-谷歌地图等等"><a href="#华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google-play的应用打开会自动关闭，如chrome-谷歌地图等等" class="headerlink" title="华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google play的应用打开会自动关闭，如chrome,谷歌地图等等"></a>华为荣耀手机安装Google三件套后很痛苦的一件事就是会弹窗（未获认证），依赖google play的应用打开会自动关闭，如chrome,谷歌地图等等</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="最早的靠谱方法（来自YouTuber-johnwang66）"><a href="#最早的靠谱方法（来自YouTuber-johnwang66）" class="headerlink" title="最早的靠谱方法（来自YouTuber @johnwang66）"></a>最早的靠谱方法（来自YouTuber @johnwang66）</h3><p>1、手机切为飞行模式<br>2、”google 服务框架” 清空缓存和数据，停止运行<br>3、”google  play 服务” 清空缓存<code>（注意不要清空数据）</code>，停止运行<br>4、”google play 商店” 清空缓存和数据，停止运行<br>5、重启手机，”google  play 服务” 清空数据，停止运行<br>6、重启手机，取消飞行模式，恢复正常使用不会弹窗</p>
+<p>使用上面方法一直用得好好的，后来play 服务升级后会失效，所以增加一步<br>7、”google  play 服务” — 流量使用—禁止所有网络访问（就不会升级了）</p>
+<p>最近系统升级为鸿蒙4.0后，噩梦又开始了，第7步会失效，即使禁用，它还是会自动升级（流量使用–可以看到流量）<br>经过研究，找到新方法：<br>停用google 框架即可,  play 升级也没事了，pm不能停用play, 否则其他软件不能运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell</span><br><span class="line">$ pm  disable-user –user 0  com.google.android.gsf</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">huawei</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">荣耀</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">google</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">弹窗</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/01/15/%E5%8D%8E%E4%B8%BA%E8%8D%A3%E8%80%80%E6%89%8B%E6%9C%BAGoogle%E6%9C%8D%E5%8A%A1%E5%BC%B9%E7%AA%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-windows开启网关功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -326,7 +416,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 John Doe
+    		&copy; 2024 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -422,6 +512,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">荣耀</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">弹窗</a>
               </li>
             
             <div class="clearfix"></div>
