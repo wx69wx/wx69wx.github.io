@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 弹窗 | Hexo</title>
+  <title>adb shell 扩展命令 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/%E5%BC%B9%E7%AA%97/index.html">
+  <meta name="description" content="adb shell手机后痛苦的发现可用命令比较少，而且命令还是阉割版，比如du  就不能用–max-depth参数，而termux下可以pkg&#x2F;apt安装扩展很多包，但遗憾的是它运行权限有限，同样限制了发挥, 那有没办法综合两者优点？？答案是肯定的。Quick Start经过研究实现如下：1、termux下adb push  ~&#x2F;..&#x2F;files&#x2F;usr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="adb shell 扩展命令">
+<meta property="og:url" content="http://example.com/2024/07/14/adb%20shell%20%E6%89%A9%E5%B1%95%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="adb shell手机后痛苦的发现可用命令比较少，而且命令还是阉割版，比如du  就不能用–max-depth参数，而termux下可以pkg&#x2F;apt安装扩展很多包，但遗憾的是它运行权限有限，同样限制了发挥, 那有没办法综合两者优点？？答案是肯定的。Quick Start经过研究实现如下：1、termux下adb push  ~&#x2F;..&#x2F;files&#x2F;usr">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-14T15:57:18.000Z">
+<meta property="article:modified_time" content="2024-07-14T15:56:52.848Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="adb shell">
+<meta property="article:tag" content="termux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -154,72 +160,179 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-adb shell 扩展命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/01/15/%E5%8D%8E%E4%B8%BA%E8%8D%A3%E8%80%80%E6%89%8B%E6%9C%BAGoogle%E6%9C%8D%E5%8A%A1%E5%BC%B9%E7%AA%97/" class="archive-article-date">
-  	<time datetime="2024-01-15T15:57:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/01/15/%E5%8D%8E%E4%B8%BA%E8%8D%A3%E8%80%80%E6%89%8B%E6%9C%BAGoogle%E6%9C%8D%E5%8A%A1%E5%BC%B9%E7%AA%97/">华为荣耀手机google服务弹窗问题</a>
+    <h1 class="article-title" itemprop="name">
+      adb shell 扩展命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2024/07/14/adb%20shell%20%E6%89%A9%E5%B1%95%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2024-07-14T15:57:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="adb-shell手机后痛苦的发现可用命令比较少，而且命令还是阉割版，比如du-就不能用–max-depth参数，而termux下可以pkg-x2F-apt安装扩展很多包，但遗憾的是它运行权限有限，同样限制了发挥-那有没办法综合两者优点？？答案是肯定的。"><a href="#adb-shell手机后痛苦的发现可用命令比较少，而且命令还是阉割版，比如du-就不能用–max-depth参数，而termux下可以pkg-x2F-apt安装扩展很多包，但遗憾的是它运行权限有限，同样限制了发挥-那有没办法综合两者优点？？答案是肯定的。" class="headerlink" title="adb shell手机后痛苦的发现可用命令比较少，而且命令还是阉割版，比如du  就不能用–max-depth参数，而termux下可以pkg&#x2F;apt安装扩展很多包，但遗憾的是它运行权限有限，同样限制了发挥, 那有没办法综合两者优点？？答案是肯定的。"></a>adb shell手机后痛苦的发现可用命令比较少，而且命令还是阉割版，比如du  就不能用–max-depth参数，而termux下可以pkg&#x2F;apt安装扩展很多包，但遗憾的是它运行权限有限，同样限制了发挥, 那有没办法综合两者优点？？答案是肯定的。</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="经过研究实现如下："><a href="#经过研究实现如下：" class="headerlink" title="经过研究实现如下："></a>经过研究实现如下：</h3><p>1、termux下adb push  ~&#x2F;..&#x2F;files&#x2F;usr    &#x2F;data&#x2F;local&#x2F;tmp<br>2、adb shell<br>     cd &#x2F;data&#x2F;local&#x2F;tmp<br>3、export PATH&#x3D;&#x2F;data&#x2F;local&#x2F;tmp&#x2F;usr&#x2F;bin:$PATH<br>      export LD_LIBRARY_PATH&#x3D;&#x2F;data&#x2F;local&#x2F;tmp&#x2F;usr&#x2F;lib:$LD_LIBRARY_PATH<br>     或者将上面写为env.sh,  执行source env.sh<br>4、然后就可以执行termux下的命令了（以shell用户身份）</p>
+<p>美中不足的是不能用apt 根据需要扩展安装包，经过研究如下：<br>通过sed 替换所有&#x2F;data&#x2F;local&#x2F;tmp&#x2F;usr&#x2F;bin 以及lib目录下文件中字符串 “&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files”<br>为“&#x2F;data&#x2F;local&#x2F;tmp&#x2F;.&#x2F;.&#x2F;.&#x2F;.&#x2F;.&#x2F;.&#x2F;“ 以及“&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;caches”为”&#x2F;data&#x2F;local&#x2F;tmp&#x2F;.&#x2F;.&#x2F;.&#x2F;caches“<br> 这样apt install xx 不会报错了，但安装还是失败，原因是termux的deb包默认压缩目录结构为&#x2F;data&#x2F;data&#x2F;com.termux</p>
+<p>研究apt安装后台执行步骤如下：<br>1、从源下载 xx.deb到caches&#x2F;apt&#x2F;archives&#x2F;<br>2、dpkg -i  xx.deb (实际执行  dpkg-deb  -x  xx.deb  解压到 &#x2F;data&#x2F;data&#x2F;com.termux下</p>
+<p>所以可编写脚本apt-wei.sh替代apt命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#!/system/bin/sh</span><br><span class="line"></span><br><span class="line"># 检查是否带有参数</span><br><span class="line">if [ -z &quot;$1&quot; ]; then</span><br><span class="line">  echo &quot;请提供要安装的软件包名称&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">PACKAGE=$1</span><br><span class="line"></span><br><span class="line"># 安装指定的软件包</span><br><span class="line">apt install $PACKAGE -y</span><br><span class="line"></span><br><span class="line"># 定义缓存目录和目标目录</span><br><span class="line">CACHE_DIR=&quot;/data/local/tmp/cache/apt/archives&quot;</span><br><span class="line">TARGET_DIR=&quot;/data/local/tmp&quot;</span><br><span class="line"></span><br><span class="line"># 进入缓存目录</span><br><span class="line">cd $CACHE_DIR</span><br><span class="line"></span><br><span class="line"># 解压指定的软件包</span><br><span class="line">dpkg-deb -x $&#123;PACKAGE&#125;*.deb .</span><br><span class="line"></span><br><span class="line"># 拷贝解压后的文件到目标目录</span><br><span class="line">cp -r ./data/data/com.termux/files/usr $TARGET_DIR</span><br><span class="line"></span><br><span class="line"># 清空缓存目录</span><br><span class="line">rm -rf $&#123;CACHE_DIR&#125;/*</span><br><span class="line"></span><br><span class="line">echo &quot;软件包 $PACKAGE 已安装并解压到 $TARGET_DIR，缓存目录已清空&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">huawei</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">adb shell</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">荣耀</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">google</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">弹窗</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">termux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/07/14/adb%20shell%20%E6%89%A9%E5%B1%95%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2024/01/15/%E5%8D%8E%E4%B8%BA%E8%8D%A3%E8%80%80%E6%89%8B%E6%9C%BAGoogle%E6%9C%8D%E5%8A%A1%E5%BC%B9%E7%AA%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">华为荣耀手机google服务弹窗问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +355,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
